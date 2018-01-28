@@ -34,6 +34,9 @@ template <typename new_type> class lister
             link_front -> link_back = link_back;
             link_front -> link_front = nullptr;
 
+            link_front -> symbol = 0;
+            link_back -> symbol = 0;
+
             clearance = false;
 
             std::cout << "created" << std::endl;
@@ -215,5 +218,16 @@ template <typename new_type> class lister
             link_front -> link_front -> symbol = 0;
 
             link_front -> link_front -> link_front -> symbol = 0;
+
+            link_front = link_front -> link_front -> link_front;
+            }
+
+        bool something_stayed ()
+            {
+            if (link_front -> symbol == 0 && link_back -> symbol == 0)
+                {
+                return false;
+                }
+            else return true;
             }
     };
