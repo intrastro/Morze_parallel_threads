@@ -64,7 +64,7 @@ class morze
 
          void beeping (lister <int> &new_list)
             {
-            Sleep (10000);
+            Sleep (5000);
 
             std::cout << "!!!" << std::endl;
 
@@ -76,7 +76,9 @@ class morze
                     {
                     if (new_list.ret_Back () == SILENCE)
                         {
-                        Beep (50, 200);
+                        //Beep (50, 200);
+
+                        Sleep (100);
                         }
                     else if (new_list.ret_Back () == DOT)
                         {
@@ -88,7 +90,9 @@ class morze
                         }
                     else if (new_list.ret_Back () == LONG_SILENCE)
                         {
-                        Beep (100, 500);
+                        //Beep (100, 500);
+
+                        Sleep (500);
                         }
                     else
                         {
@@ -102,13 +106,17 @@ class morze
 
                     Sleep (50);
                     }
-                else
+                else if (new_list.something_stayed ())
                     {
                     new_list.clearance_false ();
 
                     new_list.clear_list_to_front ();
 
                     new_list.clearance_true ();
+
+                    //std::cout << "I`ll wait for a few seconds..." << std::endl;
+
+                    //Sleep (5000);
                     }
 
                 locker.unlock ();
